@@ -21,7 +21,7 @@ class TestDaily:
     @parametrize
     def test_method_get(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -29,7 +29,7 @@ class TestDaily:
     @parametrize
     def test_method_get_with_all_params(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -39,7 +39,7 @@ class TestDaily:
     @parametrize
     def test_raw_response_get(self, client: DevinPlatform) -> None:
         response = client.organizations.consumption.daily.with_raw_response.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -51,7 +51,7 @@ class TestDaily:
     @parametrize
     def test_streaming_response_get(self, client: DevinPlatform) -> None:
         with client.organizations.consumption.daily.with_streaming_response.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -74,7 +74,7 @@ class TestDaily:
     def test_method_get_service_user(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -83,7 +83,7 @@ class TestDaily:
     def test_method_get_service_user_with_all_params(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -94,7 +94,7 @@ class TestDaily:
     def test_raw_response_get_service_user(self, client: DevinPlatform) -> None:
         response = client.organizations.consumption.daily.with_raw_response.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -107,7 +107,7 @@ class TestDaily:
     def test_streaming_response_get_service_user(self, client: DevinPlatform) -> None:
         with client.organizations.consumption.daily.with_streaming_response.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -129,7 +129,7 @@ class TestDaily:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `service_user_id` but received ''"):
             client.organizations.consumption.daily.with_raw_response.get_service_user(
                 service_user_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -137,7 +137,7 @@ class TestDaily:
     def test_method_get_session(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -146,7 +146,7 @@ class TestDaily:
     def test_method_get_session_with_all_params(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -157,7 +157,7 @@ class TestDaily:
     def test_raw_response_get_session(self, client: DevinPlatform) -> None:
         response = client.organizations.consumption.daily.with_raw_response.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -170,7 +170,7 @@ class TestDaily:
     def test_streaming_response_get_session(self, client: DevinPlatform) -> None:
         with client.organizations.consumption.daily.with_streaming_response.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -192,7 +192,7 @@ class TestDaily:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `session_id` but received ''"):
             client.organizations.consumption.daily.with_raw_response.get_session(
                 session_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -200,7 +200,7 @@ class TestDaily:
     def test_method_get_user(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -209,7 +209,7 @@ class TestDaily:
     def test_method_get_user_with_all_params(self, client: DevinPlatform) -> None:
         daily = client.organizations.consumption.daily.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -220,7 +220,7 @@ class TestDaily:
     def test_raw_response_get_user(self, client: DevinPlatform) -> None:
         response = client.organizations.consumption.daily.with_raw_response.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -233,7 +233,7 @@ class TestDaily:
     def test_streaming_response_get_user(self, client: DevinPlatform) -> None:
         with client.organizations.consumption.daily.with_streaming_response.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -255,7 +255,7 @@ class TestDaily:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `user_id` but received ''"):
             client.organizations.consumption.daily.with_raw_response.get_user(
                 user_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
 
@@ -268,7 +268,7 @@ class TestAsyncDaily:
     @parametrize
     async def test_method_get(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -276,7 +276,7 @@ class TestAsyncDaily:
     @parametrize
     async def test_method_get_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -286,7 +286,7 @@ class TestAsyncDaily:
     @parametrize
     async def test_raw_response_get(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.consumption.daily.with_raw_response.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -298,7 +298,7 @@ class TestAsyncDaily:
     @parametrize
     async def test_streaming_response_get(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.consumption.daily.with_streaming_response.get(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -321,7 +321,7 @@ class TestAsyncDaily:
     async def test_method_get_service_user(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -330,7 +330,7 @@ class TestAsyncDaily:
     async def test_method_get_service_user_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -341,7 +341,7 @@ class TestAsyncDaily:
     async def test_raw_response_get_service_user(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.consumption.daily.with_raw_response.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -354,7 +354,7 @@ class TestAsyncDaily:
     async def test_streaming_response_get_service_user(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.consumption.daily.with_streaming_response.get_service_user(
             service_user_id="service-user-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -376,7 +376,7 @@ class TestAsyncDaily:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `service_user_id` but received ''"):
             await async_client.organizations.consumption.daily.with_raw_response.get_service_user(
                 service_user_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -384,7 +384,7 @@ class TestAsyncDaily:
     async def test_method_get_session(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -393,7 +393,7 @@ class TestAsyncDaily:
     async def test_method_get_session_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -404,7 +404,7 @@ class TestAsyncDaily:
     async def test_raw_response_get_session(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.consumption.daily.with_raw_response.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -417,7 +417,7 @@ class TestAsyncDaily:
     async def test_streaming_response_get_session(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.consumption.daily.with_streaming_response.get_session(
             session_id="devin-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -439,7 +439,7 @@ class TestAsyncDaily:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `session_id` but received ''"):
             await async_client.organizations.consumption.daily.with_raw_response.get_session(
                 session_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -447,7 +447,7 @@ class TestAsyncDaily:
     async def test_method_get_user(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Consumption, daily, path=["response"])
 
@@ -456,7 +456,7 @@ class TestAsyncDaily:
     async def test_method_get_user_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         daily = await async_client.organizations.consumption.daily.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -467,7 +467,7 @@ class TestAsyncDaily:
     async def test_raw_response_get_user(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.consumption.daily.with_raw_response.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -480,7 +480,7 @@ class TestAsyncDaily:
     async def test_streaming_response_get_user(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.consumption.daily.with_streaming_response.get_user(
             user_id="user_id",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -502,5 +502,5 @@ class TestAsyncDaily:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `user_id` but received ''"):
             await async_client.organizations.consumption.daily.with_raw_response.get_user(
                 user_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )

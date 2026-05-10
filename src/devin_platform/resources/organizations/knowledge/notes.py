@@ -51,6 +51,8 @@ class NotesResource(SyncAPIResource):
         body: str,
         name: str,
         trigger: str,
+        folder_id: Optional[str] | Omit = omit,
+        is_enabled: Optional[bool] | Omit = omit,
         pinned_repo: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -80,6 +82,8 @@ class NotesResource(SyncAPIResource):
                     "body": body,
                     "name": name,
                     "trigger": trigger,
+                    "folder_id": folder_id,
+                    "is_enabled": is_enabled,
                     "pinned_repo": pinned_repo,
                 },
                 note_create_params.NoteCreateParams,
@@ -134,6 +138,8 @@ class NotesResource(SyncAPIResource):
         body: str,
         name: str,
         trigger: str,
+        folder_id: Optional[str] | Omit = omit,
+        is_enabled: Optional[bool] | Omit = omit,
         pinned_repo: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -165,6 +171,8 @@ class NotesResource(SyncAPIResource):
                     "body": body,
                     "name": name,
                     "trigger": trigger,
+                    "folder_id": folder_id,
+                    "is_enabled": is_enabled,
                     "pinned_repo": pinned_repo,
                 },
                 note_update_params.NoteUpdateParams,
@@ -290,6 +298,8 @@ class AsyncNotesResource(AsyncAPIResource):
         body: str,
         name: str,
         trigger: str,
+        folder_id: Optional[str] | Omit = omit,
+        is_enabled: Optional[bool] | Omit = omit,
         pinned_repo: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -319,6 +329,8 @@ class AsyncNotesResource(AsyncAPIResource):
                     "body": body,
                     "name": name,
                     "trigger": trigger,
+                    "folder_id": folder_id,
+                    "is_enabled": is_enabled,
                     "pinned_repo": pinned_repo,
                 },
                 note_create_params.NoteCreateParams,
@@ -373,6 +385,8 @@ class AsyncNotesResource(AsyncAPIResource):
         body: str,
         name: str,
         trigger: str,
+        folder_id: Optional[str] | Omit = omit,
+        is_enabled: Optional[bool] | Omit = omit,
         pinned_repo: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -404,6 +418,8 @@ class AsyncNotesResource(AsyncAPIResource):
                     "body": body,
                     "name": name,
                     "trigger": trigger,
+                    "folder_id": folder_id,
+                    "is_enabled": is_enabled,
                     "pinned_repo": pinned_repo,
                 },
                 note_update_params.NoteUpdateParams,

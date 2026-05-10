@@ -26,7 +26,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_active_users(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -36,7 +36,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_active_users_with_all_params(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -48,7 +48,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_active_users(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -62,7 +62,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_active_users(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -88,7 +88,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_daily_active_users(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -98,7 +98,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_daily_active_users_with_all_params(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -110,7 +110,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_daily_active_users(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -124,7 +124,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_daily_active_users(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -150,7 +150,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_monthly_active_users(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -160,7 +160,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_monthly_active_users_with_all_params(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -172,7 +172,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_monthly_active_users(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -186,7 +186,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_monthly_active_users(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -212,7 +212,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_pr_metrics(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -222,7 +222,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_pr_metrics_with_all_params(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             playbook_id="playbook_id",
@@ -235,7 +235,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_pr_metrics(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -249,7 +249,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_pr_metrics(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -275,7 +275,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_search_metrics(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_search_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -285,7 +285,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_search_metrics(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_search_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -299,7 +299,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_search_metrics(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_search_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -325,7 +325,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_session_metrics(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -335,7 +335,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_session_metrics_with_all_params(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             playbook_id="playbook_id",
@@ -348,7 +348,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_session_metrics(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -362,7 +362,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_session_metrics(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -388,7 +388,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_usage_metrics(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(UsageMetrics, metric, path=["response"])
 
@@ -396,7 +396,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_usage_metrics_with_all_params(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -406,7 +406,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_usage_metrics(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -418,7 +418,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_usage_metrics(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -440,7 +440,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_weekly_active_users(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -450,7 +450,7 @@ class TestMetrics:
     @parametrize
     def test_method_get_weekly_active_users_with_all_params(self, client: DevinPlatform) -> None:
         metric = client.organizations.metrics.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -462,7 +462,7 @@ class TestMetrics:
     @parametrize
     def test_raw_response_get_weekly_active_users(self, client: DevinPlatform) -> None:
         response = client.organizations.metrics.with_raw_response.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -476,7 +476,7 @@ class TestMetrics:
     @parametrize
     def test_streaming_response_get_weekly_active_users(self, client: DevinPlatform) -> None:
         with client.organizations.metrics.with_streaming_response.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -508,7 +508,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_active_users(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -518,7 +518,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_active_users_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -530,7 +530,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_active_users(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -544,7 +544,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_active_users(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -570,7 +570,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_daily_active_users(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -580,7 +580,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_daily_active_users_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -592,7 +592,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_daily_active_users(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -606,7 +606,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_daily_active_users(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_daily_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -632,7 +632,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_monthly_active_users(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -642,7 +642,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_monthly_active_users_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -654,7 +654,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_monthly_active_users(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -668,7 +668,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_monthly_active_users(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_monthly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -694,7 +694,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_pr_metrics(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -704,7 +704,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_pr_metrics_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             playbook_id="playbook_id",
@@ -717,7 +717,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_pr_metrics(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -731,7 +731,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_pr_metrics(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_pr_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -757,7 +757,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_search_metrics(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_search_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -767,7 +767,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_search_metrics(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_search_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -781,7 +781,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_search_metrics(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_search_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -807,7 +807,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_session_metrics(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -817,7 +817,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_session_metrics_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             playbook_id="playbook_id",
@@ -830,7 +830,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_session_metrics(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -844,7 +844,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_session_metrics(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_session_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:
@@ -870,7 +870,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_usage_metrics(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(UsageMetrics, metric, path=["response"])
 
@@ -878,7 +878,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_usage_metrics_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -888,7 +888,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_usage_metrics(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -900,7 +900,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_usage_metrics(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_usage_metrics(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -922,7 +922,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_weekly_active_users(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -932,7 +932,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_method_get_weekly_active_users_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         metric = await async_client.organizations.metrics.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
             min_searches=0,
@@ -944,7 +944,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_raw_response_get_weekly_active_users(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.metrics.with_raw_response.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         )
@@ -958,7 +958,7 @@ class TestAsyncMetrics:
     @parametrize
     async def test_streaming_response_get_weekly_active_users(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.metrics.with_streaming_response.get_weekly_active_users(
-            org_id="org-abc123def456",
+            org_id="org_id",
             time_after=0,
             time_before=0,
         ) as response:

@@ -133,7 +133,7 @@ from devin_platform import DevinPlatform
 client = DevinPlatform()
 
 client.organizations.attachments.upload(
-    org_id="org-abc123def456",
+    org_id="org_id",
     file=Path("/path/to/file"),
 )
 ```

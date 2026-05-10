@@ -19,4 +19,6 @@ class Permission(TypedDict, total=False):
 
     prefix_path: Optional[str]
 
+    read_only: bool
+
     repo_path: Optional[str]

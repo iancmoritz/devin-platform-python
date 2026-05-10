@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, List, Iterable, Optional
-from typing_extensions import Literal
+from typing import Dict, Iterable, Optional
 
 import httpx
 
@@ -87,18 +86,20 @@ class SessionsResource(SyncAPIResource):
         org_id: str,
         *,
         prompt: str,
-        advanced_mode: Optional[Literal["analyze", "create", "improve", "batch", "manage"]] | Omit = omit,
+        devin_id: Optional[str] | Omit = omit,
         attachment_urls: Optional[SequenceNotStr[str]] | Omit = omit,
         bypass_approval: Optional[bool] | Omit = omit,
         child_playbook_id: Optional[str] | Omit = omit,
         create_as_user_id: Optional[str] | Omit = omit,
         knowledge_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         max_acu_limit: Optional[int] | Omit = omit,
+        platform: Optional[str] | Omit = omit,
         playbook_id: Optional[str] | Omit = omit,
         repos: Optional[SequenceNotStr[str]] | Omit = omit,
         secret_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         session_links: Optional[SequenceNotStr[str]] | Omit = omit,
         session_secrets: Optional[Iterable[session_create_params.SessionSecret]] | Omit = omit,
+        structured_output_required: Optional[bool] | Omit = omit,
         structured_output_schema: Optional[Dict[str, object]] | Omit = omit,
         tags: Optional[SequenceNotStr[str]] | Omit = omit,
         title: Optional[str] | Omit = omit,
@@ -113,6 +114,18 @@ class SessionsResource(SyncAPIResource):
         Create a new session
 
         Args:
+          platform: Override the VM platform for the session (e.g. 'windows'). When omitted (or set
+              to 'inherit'), a session created by a parent Devin inherits the parent's
+              platform; otherwise the organization default is used. Pass 'default' to force
+              the organization default regardless of parent. Any other value must match a
+              platform configured for your organization (case-insensitive); unrecognized
+              values are rejected with a 400 whose error body lists the available platform
+              labels for the org.
+
+          structured_output_required: When true (default), the agent MUST call provide_structured_output with
+              is_final=true before its turn ends. When false, the tool is available but not
+              required — it is not guaranteed to be called in a given turn.
+
           structured_output_schema: JSON Schema (Draft 7) for validating structured output. Max 64KB. Must be
               self-contained (no external $ref).
 
@@ -131,18 +144,19 @@ class SessionsResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "prompt": prompt,
-                    "advanced_mode": advanced_mode,
                     "attachment_urls": attachment_urls,
                     "bypass_approval": bypass_approval,
                     "child_playbook_id": child_playbook_id,
                     "create_as_user_id": create_as_user_id,
                     "knowledge_ids": knowledge_ids,
                     "max_acu_limit": max_acu_limit,
+                    "platform": platform,
                     "playbook_id": playbook_id,
                     "repos": repos,
                     "secret_ids": secret_ids,
                     "session_links": session_links,
                     "session_secrets": session_secrets,
+                    "structured_output_required": structured_output_required,
                     "structured_output_schema": structured_output_schema,
                     "tags": tags,
                     "title": title,
@@ -150,7 +164,11 @@ class SessionsResource(SyncAPIResource):
                 session_create_params.SessionCreateParams,
             ),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform({"devin_id": devin_id}, session_create_params.SessionCreateParams),
             ),
             cast_to=SessionResponse,
         )
@@ -195,22 +213,8 @@ class SessionsResource(SyncAPIResource):
         self,
         org_id: str,
         *,
-        after: Optional[str] | Omit = omit,
-        created_after: Optional[int] | Omit = omit,
-        created_before: Optional[int] | Omit = omit,
-        first: int | Omit = omit,
-        origins: Optional[
-            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "scheduled", "cli", "other"]]
-        ]
-        | Omit = omit,
-        playbook_id: Optional[str] | Omit = omit,
-        schedule_id: Optional[str] | Omit = omit,
-        service_user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        session_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        tags: Optional[SequenceNotStr[str]] | Omit = omit,
-        updated_after: Optional[int] | Omit = omit,
-        updated_before: Optional[int] | Omit = omit,
-        user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
+        qs: session_list_params.Qs,
+        devin_id: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -241,19 +245,8 @@ class SessionsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "after": after,
-                        "created_after": created_after,
-                        "created_before": created_before,
-                        "first": first,
-                        "origins": origins,
-                        "playbook_id": playbook_id,
-                        "schedule_id": schedule_id,
-                        "service_user_ids": service_user_ids,
-                        "session_ids": session_ids,
-                        "tags": tags,
-                        "updated_after": updated_after,
-                        "updated_before": updated_before,
-                        "user_ids": user_ids,
+                        "qs": qs,
+                        "devin_id": devin_id,
                     },
                     session_list_params.SessionListParams,
                 ),
@@ -416,18 +409,20 @@ class AsyncSessionsResource(AsyncAPIResource):
         org_id: str,
         *,
         prompt: str,
-        advanced_mode: Optional[Literal["analyze", "create", "improve", "batch", "manage"]] | Omit = omit,
+        devin_id: Optional[str] | Omit = omit,
         attachment_urls: Optional[SequenceNotStr[str]] | Omit = omit,
         bypass_approval: Optional[bool] | Omit = omit,
         child_playbook_id: Optional[str] | Omit = omit,
         create_as_user_id: Optional[str] | Omit = omit,
         knowledge_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         max_acu_limit: Optional[int] | Omit = omit,
+        platform: Optional[str] | Omit = omit,
         playbook_id: Optional[str] | Omit = omit,
         repos: Optional[SequenceNotStr[str]] | Omit = omit,
         secret_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         session_links: Optional[SequenceNotStr[str]] | Omit = omit,
         session_secrets: Optional[Iterable[session_create_params.SessionSecret]] | Omit = omit,
+        structured_output_required: Optional[bool] | Omit = omit,
         structured_output_schema: Optional[Dict[str, object]] | Omit = omit,
         tags: Optional[SequenceNotStr[str]] | Omit = omit,
         title: Optional[str] | Omit = omit,
@@ -442,6 +437,18 @@ class AsyncSessionsResource(AsyncAPIResource):
         Create a new session
 
         Args:
+          platform: Override the VM platform for the session (e.g. 'windows'). When omitted (or set
+              to 'inherit'), a session created by a parent Devin inherits the parent's
+              platform; otherwise the organization default is used. Pass 'default' to force
+              the organization default regardless of parent. Any other value must match a
+              platform configured for your organization (case-insensitive); unrecognized
+              values are rejected with a 400 whose error body lists the available platform
+              labels for the org.
+
+          structured_output_required: When true (default), the agent MUST call provide_structured_output with
+              is_final=true before its turn ends. When false, the tool is available but not
+              required — it is not guaranteed to be called in a given turn.
+
           structured_output_schema: JSON Schema (Draft 7) for validating structured output. Max 64KB. Must be
               self-contained (no external $ref).
 
@@ -460,18 +467,19 @@ class AsyncSessionsResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "prompt": prompt,
-                    "advanced_mode": advanced_mode,
                     "attachment_urls": attachment_urls,
                     "bypass_approval": bypass_approval,
                     "child_playbook_id": child_playbook_id,
                     "create_as_user_id": create_as_user_id,
                     "knowledge_ids": knowledge_ids,
                     "max_acu_limit": max_acu_limit,
+                    "platform": platform,
                     "playbook_id": playbook_id,
                     "repos": repos,
                     "secret_ids": secret_ids,
                     "session_links": session_links,
                     "session_secrets": session_secrets,
+                    "structured_output_required": structured_output_required,
                     "structured_output_schema": structured_output_schema,
                     "tags": tags,
                     "title": title,
@@ -479,7 +487,11 @@ class AsyncSessionsResource(AsyncAPIResource):
                 session_create_params.SessionCreateParams,
             ),
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform({"devin_id": devin_id}, session_create_params.SessionCreateParams),
             ),
             cast_to=SessionResponse,
         )
@@ -524,22 +536,8 @@ class AsyncSessionsResource(AsyncAPIResource):
         self,
         org_id: str,
         *,
-        after: Optional[str] | Omit = omit,
-        created_after: Optional[int] | Omit = omit,
-        created_before: Optional[int] | Omit = omit,
-        first: int | Omit = omit,
-        origins: Optional[
-            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "scheduled", "cli", "other"]]
-        ]
-        | Omit = omit,
-        playbook_id: Optional[str] | Omit = omit,
-        schedule_id: Optional[str] | Omit = omit,
-        service_user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        session_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        tags: Optional[SequenceNotStr[str]] | Omit = omit,
-        updated_after: Optional[int] | Omit = omit,
-        updated_before: Optional[int] | Omit = omit,
-        user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
+        qs: session_list_params.Qs,
+        devin_id: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -570,19 +568,8 @@ class AsyncSessionsResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
-                        "after": after,
-                        "created_after": created_after,
-                        "created_before": created_before,
-                        "first": first,
-                        "origins": origins,
-                        "playbook_id": playbook_id,
-                        "schedule_id": schedule_id,
-                        "service_user_ids": service_user_ids,
-                        "session_ids": session_ids,
-                        "tags": tags,
-                        "updated_after": updated_after,
-                        "updated_before": updated_before,
-                        "user_ids": user_ids,
+                        "qs": qs,
+                        "devin_id": devin_id,
                     },
                     session_list_params.SessionListParams,
                 ),
