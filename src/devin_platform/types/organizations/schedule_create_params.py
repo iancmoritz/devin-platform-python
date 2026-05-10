@@ -17,7 +17,7 @@ class ScheduleCreateParams(TypedDict, total=False):
 
     prompt: Required[str]
 
-    agent: Literal["devin", "data_analyst", "advanced"]
+    agent: Literal["devin", "data_analyst"]
 
     bypass_approval: bool
 

@@ -35,13 +35,14 @@ class TestSessions:
         session = client.organizations.sessions.create(
             org_id="org-abc123def456",
             prompt="prompt",
-            advanced_mode="analyze",
+            devin_id="devin_id",
             attachment_urls=["https://example.com"],
             bypass_approval=True,
             child_playbook_id="child_playbook_id",
             create_as_user_id="create_as_user_id",
             knowledge_ids=["string"],
             max_acu_limit=0,
+            platform="platform",
             playbook_id="playbook_id",
             repos=["string"],
             secret_ids=["string"],
@@ -53,6 +54,7 @@ class TestSessions:
                     "sensitive": True,
                 }
             ],
+            structured_output_required=True,
             structured_output_schema={"foo": "bar"},
             tags=["string"],
             title="title",
@@ -153,6 +155,7 @@ class TestSessions:
     def test_method_list(self, client: DevinPlatform) -> None:
         session = client.organizations.sessions.list(
             org_id="org-abc123def456",
+            qs={},
         )
         assert_matches_type(PaginatedSessionResponse, session, path=["response"])
 
@@ -161,19 +164,25 @@ class TestSessions:
     def test_method_list_with_all_params(self, client: DevinPlatform) -> None:
         session = client.organizations.sessions.list(
             org_id="org-abc123def456",
-            after="after",
-            created_after=0,
-            created_before=0,
-            first=1,
-            origins=["webapp"],
-            playbook_id="playbook_id",
-            schedule_id="schedule_id",
-            service_user_ids=["string"],
-            session_ids=["string"],
-            tags=["string"],
-            updated_after=0,
-            updated_before=0,
-            user_ids=["string"],
+            qs={
+                "after": "after",
+                "category": "bug_fixing",
+                "created_after": 0,
+                "created_before": 0,
+                "first": 1,
+                "is_archived": True,
+                "origins": ["webapp"],
+                "playbook_id": "playbook_id",
+                "repo_names": ["string"],
+                "schedule_id": "schedule_id",
+                "service_user_ids": ["string"],
+                "session_ids": ["string"],
+                "tags": ["string"],
+                "updated_after": 0,
+                "updated_before": 0,
+                "user_ids": ["string"],
+            },
+            devin_id="devin_id",
         )
         assert_matches_type(PaginatedSessionResponse, session, path=["response"])
 
@@ -182,6 +191,7 @@ class TestSessions:
     def test_raw_response_list(self, client: DevinPlatform) -> None:
         response = client.organizations.sessions.with_raw_response.list(
             org_id="org-abc123def456",
+            qs={},
         )
 
         assert response.is_closed is True
@@ -194,6 +204,7 @@ class TestSessions:
     def test_streaming_response_list(self, client: DevinPlatform) -> None:
         with client.organizations.sessions.with_streaming_response.list(
             org_id="org-abc123def456",
+            qs={},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -209,6 +220,7 @@ class TestSessions:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
             client.organizations.sessions.with_raw_response.list(
                 org_id="",
+                qs={},
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -398,13 +410,14 @@ class TestAsyncSessions:
         session = await async_client.organizations.sessions.create(
             org_id="org-abc123def456",
             prompt="prompt",
-            advanced_mode="analyze",
+            devin_id="devin_id",
             attachment_urls=["https://example.com"],
             bypass_approval=True,
             child_playbook_id="child_playbook_id",
             create_as_user_id="create_as_user_id",
             knowledge_ids=["string"],
             max_acu_limit=0,
+            platform="platform",
             playbook_id="playbook_id",
             repos=["string"],
             secret_ids=["string"],
@@ -416,6 +429,7 @@ class TestAsyncSessions:
                     "sensitive": True,
                 }
             ],
+            structured_output_required=True,
             structured_output_schema={"foo": "bar"},
             tags=["string"],
             title="title",
@@ -516,6 +530,7 @@ class TestAsyncSessions:
     async def test_method_list(self, async_client: AsyncDevinPlatform) -> None:
         session = await async_client.organizations.sessions.list(
             org_id="org-abc123def456",
+            qs={},
         )
         assert_matches_type(PaginatedSessionResponse, session, path=["response"])
 
@@ -524,19 +539,25 @@ class TestAsyncSessions:
     async def test_method_list_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         session = await async_client.organizations.sessions.list(
             org_id="org-abc123def456",
-            after="after",
-            created_after=0,
-            created_before=0,
-            first=1,
-            origins=["webapp"],
-            playbook_id="playbook_id",
-            schedule_id="schedule_id",
-            service_user_ids=["string"],
-            session_ids=["string"],
-            tags=["string"],
-            updated_after=0,
-            updated_before=0,
-            user_ids=["string"],
+            qs={
+                "after": "after",
+                "category": "bug_fixing",
+                "created_after": 0,
+                "created_before": 0,
+                "first": 1,
+                "is_archived": True,
+                "origins": ["webapp"],
+                "playbook_id": "playbook_id",
+                "repo_names": ["string"],
+                "schedule_id": "schedule_id",
+                "service_user_ids": ["string"],
+                "session_ids": ["string"],
+                "tags": ["string"],
+                "updated_after": 0,
+                "updated_before": 0,
+                "user_ids": ["string"],
+            },
+            devin_id="devin_id",
         )
         assert_matches_type(PaginatedSessionResponse, session, path=["response"])
 
@@ -545,6 +566,7 @@ class TestAsyncSessions:
     async def test_raw_response_list(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.sessions.with_raw_response.list(
             org_id="org-abc123def456",
+            qs={},
         )
 
         assert response.is_closed is True
@@ -557,6 +579,7 @@ class TestAsyncSessions:
     async def test_streaming_response_list(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.sessions.with_streaming_response.list(
             org_id="org-abc123def456",
+            qs={},
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -572,6 +595,7 @@ class TestAsyncSessions:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `org_id` but received ''"):
             await async_client.organizations.sessions.with_raw_response.list(
                 org_id="",
+                qs={},
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")

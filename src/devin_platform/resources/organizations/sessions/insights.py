@@ -2,12 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
-from typing_extensions import Literal
+from typing import Optional
 
 import httpx
 
-from ...._types import Body, Omit, Query, Headers, NotGiven, SequenceNotStr, omit, not_given
+from ...._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
 from ...._utils import path_template, maybe_transform, async_maybe_transform
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
@@ -87,22 +86,8 @@ class InsightsResource(SyncAPIResource):
         self,
         org_id: str,
         *,
-        after: Optional[str] | Omit = omit,
-        created_after: Optional[int] | Omit = omit,
-        created_before: Optional[int] | Omit = omit,
-        first: int | Omit = omit,
-        origins: Optional[
-            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "scheduled", "cli", "other"]]
-        ]
-        | Omit = omit,
-        playbook_id: Optional[str] | Omit = omit,
-        schedule_id: Optional[str] | Omit = omit,
-        service_user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        session_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        tags: Optional[SequenceNotStr[str]] | Omit = omit,
-        updated_after: Optional[int] | Omit = omit,
-        updated_before: Optional[int] | Omit = omit,
-        user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
+        qs: insight_list_params.Qs,
+        devin_id: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -134,19 +119,8 @@ class InsightsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
-                        "after": after,
-                        "created_after": created_after,
-                        "created_before": created_before,
-                        "first": first,
-                        "origins": origins,
-                        "playbook_id": playbook_id,
-                        "schedule_id": schedule_id,
-                        "service_user_ids": service_user_ids,
-                        "session_ids": session_ids,
-                        "tags": tags,
-                        "updated_after": updated_after,
-                        "updated_before": updated_before,
-                        "user_ids": user_ids,
+                        "qs": qs,
+                        "devin_id": devin_id,
                     },
                     insight_list_params.InsightListParams,
                 ),
@@ -258,22 +232,8 @@ class AsyncInsightsResource(AsyncAPIResource):
         self,
         org_id: str,
         *,
-        after: Optional[str] | Omit = omit,
-        created_after: Optional[int] | Omit = omit,
-        created_before: Optional[int] | Omit = omit,
-        first: int | Omit = omit,
-        origins: Optional[
-            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "scheduled", "cli", "other"]]
-        ]
-        | Omit = omit,
-        playbook_id: Optional[str] | Omit = omit,
-        schedule_id: Optional[str] | Omit = omit,
-        service_user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        session_ids: Optional[SequenceNotStr[str]] | Omit = omit,
-        tags: Optional[SequenceNotStr[str]] | Omit = omit,
-        updated_after: Optional[int] | Omit = omit,
-        updated_before: Optional[int] | Omit = omit,
-        user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
+        qs: insight_list_params.Qs,
+        devin_id: Optional[str] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -305,19 +265,8 @@ class AsyncInsightsResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
-                        "after": after,
-                        "created_after": created_after,
-                        "created_before": created_before,
-                        "first": first,
-                        "origins": origins,
-                        "playbook_id": playbook_id,
-                        "schedule_id": schedule_id,
-                        "service_user_ids": service_user_ids,
-                        "session_ids": session_ids,
-                        "tags": tags,
-                        "updated_after": updated_after,
-                        "updated_before": updated_before,
-                        "user_ids": user_ids,
+                        "qs": qs,
+                        "devin_id": devin_id,
                     },
                     insight_list_params.InsightListParams,
                 ),

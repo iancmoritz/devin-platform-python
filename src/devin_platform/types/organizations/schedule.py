@@ -16,7 +16,7 @@ class Playbook(BaseModel):
 
 
 class Schedule(BaseModel):
-    agent: Literal["devin", "data_analyst", "advanced"]
+    agent: Literal["devin", "data_analyst"]
 
     consecutive_failures: int
 
@@ -51,6 +51,8 @@ class Schedule(BaseModel):
     bypass_approval: Optional[bool] = None
 
     interval_count: Optional[int] = None
+
+    last_edited_by: Optional[str] = None
 
     schedule_type: Optional[Literal["recurring", "one_time"]] = None
 

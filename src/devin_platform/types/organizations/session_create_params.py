@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import Dict, Iterable, Optional
-from typing_extensions import Literal, Required, TypedDict
+from typing_extensions import Required, TypedDict
 
 from ..._types import SequenceNotStr
 
@@ -13,7 +13,7 @@ __all__ = ["SessionCreateParams", "SessionSecret"]
 class SessionCreateParams(TypedDict, total=False):
     prompt: Required[str]
 
-    advanced_mode: Optional[Literal["analyze", "create", "improve", "batch", "manage"]]
+    devin_id: Optional[str]
 
     attachment_urls: Optional[SequenceNotStr[str]]
 
@@ -27,6 +27,17 @@ class SessionCreateParams(TypedDict, total=False):
 
     max_acu_limit: Optional[int]
 
+    platform: Optional[str]
+    """Override the VM platform for the session (e.g.
+
+    'windows'). When omitted (or set to 'inherit'), a session created by a parent
+    Devin inherits the parent's platform; otherwise the organization default is
+    used. Pass 'default' to force the organization default regardless of parent. Any
+    other value must match a platform configured for your organization
+    (case-insensitive); unrecognized values are rejected with a 400 whose error body
+    lists the available platform labels for the org.
+    """
+
     playbook_id: Optional[str]
 
     repos: Optional[SequenceNotStr[str]]
@@ -36,6 +47,13 @@ class SessionCreateParams(TypedDict, total=False):
     session_links: Optional[SequenceNotStr[str]]
 
     session_secrets: Optional[Iterable[SessionSecret]]
+
+    structured_output_required: Optional[bool]
+    """
+    When true (default), the agent MUST call provide_structured_output with
+    is_final=true before its turn ends. When false, the tool is available but not
+    required — it is not guaranteed to be called in a given turn.
+    """
 
     structured_output_schema: Optional[Dict[str, object]]
     """JSON Schema (Draft 7) for validating structured output.

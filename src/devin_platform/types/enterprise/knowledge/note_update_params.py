@@ -15,4 +15,8 @@ class NoteUpdateParams(TypedDict, total=False):
 
     trigger: Required[str]
 
+    folder_id: Optional[str]
+
+    is_enabled: Optional[bool]
+
     pinned_repo: Optional[str]

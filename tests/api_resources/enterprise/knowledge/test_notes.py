@@ -37,6 +37,8 @@ class TestNotes:
             body="body",
             name="name",
             trigger="trigger",
+            folder_id="folder_id",
+            is_enabled=True,
             pinned_repo="pinned_repo",
         )
         assert_matches_type(KnowledgeNote, note, path=["response"])
@@ -132,6 +134,8 @@ class TestNotes:
             body="body",
             name="name",
             trigger="trigger",
+            folder_id="folder_id",
+            is_enabled=True,
             pinned_repo="pinned_repo",
         )
         assert_matches_type(KnowledgeNote, note, path=["response"])
@@ -285,6 +289,8 @@ class TestAsyncNotes:
             body="body",
             name="name",
             trigger="trigger",
+            folder_id="folder_id",
+            is_enabled=True,
             pinned_repo="pinned_repo",
         )
         assert_matches_type(KnowledgeNote, note, path=["response"])
@@ -380,6 +386,8 @@ class TestAsyncNotes:
             body="body",
             name="name",
             trigger="trigger",
+            folder_id="folder_id",
+            is_enabled=True,
             pinned_repo="pinned_repo",
         )
         assert_matches_type(KnowledgeNote, note, path=["response"])

@@ -25,7 +25,7 @@ class TestSchedules:
     @parametrize
     def test_method_create(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
         )
@@ -35,7 +35,7 @@ class TestSchedules:
     @parametrize
     def test_method_create_with_all_params(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
             agent="devin",
@@ -58,7 +58,7 @@ class TestSchedules:
     @parametrize
     def test_raw_response_create(self, client: DevinPlatform) -> None:
         response = client.organizations.schedules.with_raw_response.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
         )
@@ -72,7 +72,7 @@ class TestSchedules:
     @parametrize
     def test_streaming_response_create(self, client: DevinPlatform) -> None:
         with client.organizations.schedules.with_streaming_response.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
         ) as response:
@@ -99,7 +99,7 @@ class TestSchedules:
     def test_method_retrieve(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.retrieve(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Schedule, schedule, path=["response"])
 
@@ -108,7 +108,7 @@ class TestSchedules:
     def test_raw_response_retrieve(self, client: DevinPlatform) -> None:
         response = client.organizations.schedules.with_raw_response.retrieve(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -121,7 +121,7 @@ class TestSchedules:
     def test_streaming_response_retrieve(self, client: DevinPlatform) -> None:
         with client.organizations.schedules.with_streaming_response.retrieve(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -143,7 +143,7 @@ class TestSchedules:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `schedule_id` but received ''"):
             client.organizations.schedules.with_raw_response.retrieve(
                 schedule_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -151,7 +151,7 @@ class TestSchedules:
     def test_method_update(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Schedule, schedule, path=["response"])
 
@@ -160,7 +160,7 @@ class TestSchedules:
     def test_method_update_with_all_params(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
             agent="devin",
             bypass_approval=True,
             enabled=True,
@@ -185,7 +185,7 @@ class TestSchedules:
     def test_raw_response_update(self, client: DevinPlatform) -> None:
         response = client.organizations.schedules.with_raw_response.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -198,7 +198,7 @@ class TestSchedules:
     def test_streaming_response_update(self, client: DevinPlatform) -> None:
         with client.organizations.schedules.with_streaming_response.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -220,14 +220,14 @@ class TestSchedules:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `schedule_id` but received ''"):
             client.organizations.schedules.with_raw_response.update(
                 schedule_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(ScheduleListResponse, schedule, path=["response"])
 
@@ -235,7 +235,7 @@ class TestSchedules:
     @parametrize
     def test_method_list_with_all_params(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
             limit=1,
             offset=0,
         )
@@ -245,7 +245,7 @@ class TestSchedules:
     @parametrize
     def test_raw_response_list(self, client: DevinPlatform) -> None:
         response = client.organizations.schedules.with_raw_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -257,7 +257,7 @@ class TestSchedules:
     @parametrize
     def test_streaming_response_list(self, client: DevinPlatform) -> None:
         with client.organizations.schedules.with_streaming_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -280,7 +280,7 @@ class TestSchedules:
     def test_method_delete(self, client: DevinPlatform) -> None:
         schedule = client.organizations.schedules.delete(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Schedule, schedule, path=["response"])
 
@@ -289,7 +289,7 @@ class TestSchedules:
     def test_raw_response_delete(self, client: DevinPlatform) -> None:
         response = client.organizations.schedules.with_raw_response.delete(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -302,7 +302,7 @@ class TestSchedules:
     def test_streaming_response_delete(self, client: DevinPlatform) -> None:
         with client.organizations.schedules.with_streaming_response.delete(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -324,7 +324,7 @@ class TestSchedules:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `schedule_id` but received ''"):
             client.organizations.schedules.with_raw_response.delete(
                 schedule_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
 
@@ -337,7 +337,7 @@ class TestAsyncSchedules:
     @parametrize
     async def test_method_create(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
         )
@@ -347,7 +347,7 @@ class TestAsyncSchedules:
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
             agent="devin",
@@ -370,7 +370,7 @@ class TestAsyncSchedules:
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.schedules.with_raw_response.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
         )
@@ -384,7 +384,7 @@ class TestAsyncSchedules:
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.schedules.with_streaming_response.create(
-            org_id="org-abc123def456",
+            org_id="org_id",
             name="name",
             prompt="prompt",
         ) as response:
@@ -411,7 +411,7 @@ class TestAsyncSchedules:
     async def test_method_retrieve(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.retrieve(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Schedule, schedule, path=["response"])
 
@@ -420,7 +420,7 @@ class TestAsyncSchedules:
     async def test_raw_response_retrieve(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.schedules.with_raw_response.retrieve(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -433,7 +433,7 @@ class TestAsyncSchedules:
     async def test_streaming_response_retrieve(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.schedules.with_streaming_response.retrieve(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -455,7 +455,7 @@ class TestAsyncSchedules:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `schedule_id` but received ''"):
             await async_client.organizations.schedules.with_raw_response.retrieve(
                 schedule_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
@@ -463,7 +463,7 @@ class TestAsyncSchedules:
     async def test_method_update(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Schedule, schedule, path=["response"])
 
@@ -472,7 +472,7 @@ class TestAsyncSchedules:
     async def test_method_update_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
             agent="devin",
             bypass_approval=True,
             enabled=True,
@@ -497,7 +497,7 @@ class TestAsyncSchedules:
     async def test_raw_response_update(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.schedules.with_raw_response.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -510,7 +510,7 @@ class TestAsyncSchedules:
     async def test_streaming_response_update(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.schedules.with_streaming_response.update(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -532,14 +532,14 @@ class TestAsyncSchedules:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `schedule_id` but received ''"):
             await async_client.organizations.schedules.with_raw_response.update(
                 schedule_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )
 
     @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(ScheduleListResponse, schedule, path=["response"])
 
@@ -547,7 +547,7 @@ class TestAsyncSchedules:
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
             limit=1,
             offset=0,
         )
@@ -557,7 +557,7 @@ class TestAsyncSchedules:
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.schedules.with_raw_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -569,7 +569,7 @@ class TestAsyncSchedules:
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.schedules.with_streaming_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -592,7 +592,7 @@ class TestAsyncSchedules:
     async def test_method_delete(self, async_client: AsyncDevinPlatform) -> None:
         schedule = await async_client.organizations.schedules.delete(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(Schedule, schedule, path=["response"])
 
@@ -601,7 +601,7 @@ class TestAsyncSchedules:
     async def test_raw_response_delete(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.schedules.with_raw_response.delete(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -614,7 +614,7 @@ class TestAsyncSchedules:
     async def test_streaming_response_delete(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.schedules.with_streaming_response.delete(
             schedule_id="sched-abc123def456",
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -636,5 +636,5 @@ class TestAsyncSchedules:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `schedule_id` but received ''"):
             await async_client.organizations.schedules.with_raw_response.delete(
                 schedule_id="",
-                org_id="org-abc123def456",
+                org_id="org_id",
             )

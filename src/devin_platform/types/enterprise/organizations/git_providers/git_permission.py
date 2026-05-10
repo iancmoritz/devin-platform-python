@@ -18,4 +18,6 @@ class GitPermission(BaseModel):
 
     prefix_path: Optional[str] = None
 
+    read_only: Optional[bool] = None
+
     repo_path: Optional[str] = None

@@ -21,7 +21,7 @@ class TestRepositories:
     @parametrize
     def test_method_list(self, client: DevinPlatform) -> None:
         repository = client.beta1.organizations.repositories.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(RepositoryListResponse, repository, path=["response"])
 
@@ -29,7 +29,7 @@ class TestRepositories:
     @parametrize
     def test_method_list_with_all_params(self, client: DevinPlatform) -> None:
         repository = client.beta1.organizations.repositories.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
             after="after",
             exclude_repo_paths=["string"],
             filter_name="filter_name",
@@ -43,7 +43,7 @@ class TestRepositories:
     @parametrize
     def test_raw_response_list(self, client: DevinPlatform) -> None:
         response = client.beta1.organizations.repositories.with_raw_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -55,7 +55,7 @@ class TestRepositories:
     @parametrize
     def test_streaming_response_list(self, client: DevinPlatform) -> None:
         with client.beta1.organizations.repositories.with_streaming_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -83,7 +83,7 @@ class TestAsyncRepositories:
     @parametrize
     async def test_method_list(self, async_client: AsyncDevinPlatform) -> None:
         repository = await async_client.beta1.organizations.repositories.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(RepositoryListResponse, repository, path=["response"])
 
@@ -91,7 +91,7 @@ class TestAsyncRepositories:
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         repository = await async_client.beta1.organizations.repositories.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
             after="after",
             exclude_repo_paths=["string"],
             filter_name="filter_name",
@@ -105,7 +105,7 @@ class TestAsyncRepositories:
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.beta1.organizations.repositories.with_raw_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -117,7 +117,7 @@ class TestAsyncRepositories:
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.beta1.organizations.repositories.with_streaming_response.list(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
