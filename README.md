@@ -16,12 +16,9 @@ The full API of this library can be found in [api.md](api.md).
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/devin-platform-python.git
+# install from PyPI
+pip install devin_platform
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://www.stainless.com/docs/guides/publish), this will become: `pip install devin_platform`
 
 ## Usage
 
@@ -75,8 +72,8 @@ By default, the async client uses `httpx` for HTTP requests. However, for improv
 You can enable this by installing `aiohttp`:
 
 ```sh
-# install from this staging repo
-pip install 'devin_platform[aiohttp] @ git+ssh://git@github.com/stainless-sdks/devin-platform-python.git'
+# install from PyPI
+pip install devin_platform[aiohttp]
 ```
 
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
@@ -136,7 +133,7 @@ from devin_platform import DevinPlatform
 client = DevinPlatform()
 
 client.organizations.attachments.upload(
-    org_id="org-abc123def456",
+    org_id="org_id",
     file=Path("/path/to/file"),
 )
 ```
@@ -273,9 +270,9 @@ enterprise = response.parse()  # get the object that `enterprise.list_audit_logs
 print(enterprise.items)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/devin-platform-python/tree/main/src/devin_platform/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/iancmoritz/devin-platform-python/tree/main/src/devin_platform/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/devin-platform-python/tree/main/src/devin_platform/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/iancmoritz/devin-platform-python/tree/main/src/devin_platform/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -379,7 +376,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/devin-platform-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/iancmoritz/devin-platform-python/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 

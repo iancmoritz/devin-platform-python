@@ -9,14 +9,20 @@ __all__ = ["SessionMetrics", "SessionsCreatedByOrigin"]
 
 
 class SessionsCreatedByOrigin(BaseModel):
-    """Session counts by origin type.
+    """Session counts by origin type, exposed on the v3 metrics API.
 
-    Note: The internal analytics model tracks additional origins (cli, vscode_extension,
-    devin_spaces) that are not exposed in this API model. Sessions from those origins
-    are not included in the API response.
+    A curated subset of `SessionOrigin`: legacy origins (cli,
+    vscode_extension, devin_spaces) are intentionally not surfaced.
+    Counts for sessions with a `scheduled` DB origin roll into
+    `automation` via the canonical `db_origin_to_api` mapping, since
+    automations are a superset that schedules will migrate into.
     """
 
     api: Optional[int] = None
+
+    automation: Optional[int] = None
+
+    desktop: Optional[int] = None
 
     jira: Optional[int] = None
 
@@ -35,11 +41,13 @@ class SessionMetrics(BaseModel):
     avg_acus_per_session: float
 
     sessions_created_by_origin: SessionsCreatedByOrigin
-    """Session counts by origin type.
+    """Session counts by origin type, exposed on the v3 metrics API.
 
-    Note: The internal analytics model tracks additional origins (cli,
-    vscode_extension, devin_spaces) that are not exposed in this API model. Sessions
-    from those origins are not included in the API response.
+    A curated subset of `SessionOrigin`: legacy origins (cli, vscode_extension,
+    devin_spaces) are intentionally not surfaced. Counts for sessions with a
+    `scheduled` DB origin roll into `automation` via the canonical
+    `db_origin_to_api` mapping, since automations are a superset that schedules will
+    migrate into.
     """
 
     sessions_created_by_size: SessionCountsBySize

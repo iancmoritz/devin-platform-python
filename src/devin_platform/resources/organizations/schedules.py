@@ -33,7 +33,7 @@ class SchedulesResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#accessing-raw-response-data-eg-headers
         """
         return SchedulesResourceWithRawResponse(self)
 
@@ -42,7 +42,7 @@ class SchedulesResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#with_streaming_response
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#with_streaming_response
         """
         return SchedulesResourceWithStreamingResponse(self)
 
@@ -52,7 +52,7 @@ class SchedulesResource(SyncAPIResource):
         *,
         name: str,
         prompt: str,
-        agent: Literal["devin", "data_analyst", "advanced"] | Omit = omit,
+        agent: Literal["devin", "data_analyst"] | Omit = omit,
         bypass_approval: bool | Omit = omit,
         create_as_user_id: Optional[str] | Omit = omit,
         frequency: Optional[str] | Omit = omit,
@@ -155,7 +155,7 @@ class SchedulesResource(SyncAPIResource):
         schedule_id: str,
         *,
         org_id: str,
-        agent: Optional[Literal["devin", "data_analyst", "advanced"]] | Omit = omit,
+        agent: Optional[Literal["devin", "data_analyst"]] | Omit = omit,
         bypass_approval: Optional[bool] | Omit = omit,
         enabled: Optional[bool] | Omit = omit,
         frequency: Optional[str] | Omit = omit,
@@ -316,7 +316,7 @@ class AsyncSchedulesResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#accessing-raw-response-data-eg-headers
         """
         return AsyncSchedulesResourceWithRawResponse(self)
 
@@ -325,7 +325,7 @@ class AsyncSchedulesResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#with_streaming_response
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#with_streaming_response
         """
         return AsyncSchedulesResourceWithStreamingResponse(self)
 
@@ -335,7 +335,7 @@ class AsyncSchedulesResource(AsyncAPIResource):
         *,
         name: str,
         prompt: str,
-        agent: Literal["devin", "data_analyst", "advanced"] | Omit = omit,
+        agent: Literal["devin", "data_analyst"] | Omit = omit,
         bypass_approval: bool | Omit = omit,
         create_as_user_id: Optional[str] | Omit = omit,
         frequency: Optional[str] | Omit = omit,
@@ -438,7 +438,7 @@ class AsyncSchedulesResource(AsyncAPIResource):
         schedule_id: str,
         *,
         org_id: str,
-        agent: Optional[Literal["devin", "data_analyst", "advanced"]] | Omit = omit,
+        agent: Optional[Literal["devin", "data_analyst"]] | Omit = omit,
         bypass_approval: Optional[bool] | Omit = omit,
         enabled: Optional[bool] | Omit = omit,
         frequency: Optional[str] | Omit = omit,

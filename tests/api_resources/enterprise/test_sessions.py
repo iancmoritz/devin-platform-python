@@ -83,12 +83,16 @@ class TestSessions:
     def test_method_list_with_all_params(self, client: DevinPlatform) -> None:
         session = client.enterprise.sessions.list(
             after="after",
+            category="bug_fixing",
             created_after=0,
             created_before=0,
             first=1,
+            include_deleted_orgs=True,
+            is_archived=True,
             org_ids=["string"],
             origins=["webapp"],
             playbook_id="playbook_id",
+            repo_names=["string"],
             schedule_id="schedule_id",
             service_user_ids=["string"],
             session_ids=["string"],
@@ -240,12 +244,16 @@ class TestAsyncSessions:
     async def test_method_list_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         session = await async_client.enterprise.sessions.list(
             after="after",
+            category="bug_fixing",
             created_after=0,
             created_before=0,
             first=1,
+            include_deleted_orgs=True,
+            is_archived=True,
             org_ids=["string"],
             origins=["webapp"],
             playbook_id="playbook_id",
+            repo_names=["string"],
             schedule_id="schedule_id",
             service_user_ids=["string"],
             session_ids=["string"],

@@ -21,7 +21,7 @@ class TestKnowledge:
     @parametrize
     def test_method_get_folders(self, client: DevinPlatform) -> None:
         knowledge = client.organizations.knowledge.get_folders(
-            "org-abc123def456",
+            "org_id",
         )
         assert_matches_type(FolderTree, knowledge, path=["response"])
 
@@ -29,7 +29,7 @@ class TestKnowledge:
     @parametrize
     def test_raw_response_get_folders(self, client: DevinPlatform) -> None:
         response = client.organizations.knowledge.with_raw_response.get_folders(
-            "org-abc123def456",
+            "org_id",
         )
 
         assert response.is_closed is True
@@ -41,7 +41,7 @@ class TestKnowledge:
     @parametrize
     def test_streaming_response_get_folders(self, client: DevinPlatform) -> None:
         with client.organizations.knowledge.with_streaming_response.get_folders(
-            "org-abc123def456",
+            "org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -69,7 +69,7 @@ class TestAsyncKnowledge:
     @parametrize
     async def test_method_get_folders(self, async_client: AsyncDevinPlatform) -> None:
         knowledge = await async_client.organizations.knowledge.get_folders(
-            "org-abc123def456",
+            "org_id",
         )
         assert_matches_type(FolderTree, knowledge, path=["response"])
 
@@ -77,7 +77,7 @@ class TestAsyncKnowledge:
     @parametrize
     async def test_raw_response_get_folders(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.organizations.knowledge.with_raw_response.get_folders(
-            "org-abc123def456",
+            "org_id",
         )
 
         assert response.is_closed is True
@@ -89,7 +89,7 @@ class TestAsyncKnowledge:
     @parametrize
     async def test_streaming_response_get_folders(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.organizations.knowledge.with_streaming_response.get_folders(
-            "org-abc123def456",
+            "org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

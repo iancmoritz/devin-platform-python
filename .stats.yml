@@ -1,4 +1,4 @@
 configured_endpoints: 157
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/usacognition/devin-platform-5cb6b10fa5e758884eee614a0124691ab475c50c8a902c34b7bc8bf927fb5ac0.yml
-openapi_spec_hash: 708174b0bd921479ce9e8ba128a5e38c
-config_hash: 91e4d5c3fdb84f35182e681ce753f8dd
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/usacognition/devin-platform-2b88bfb5a67786f44529b32e08e52b3d3089b92edc5eed447f05afc1dded7fc8.yml
+openapi_spec_hash: 982b25e880993ff947cba4e4c91f87bb
+config_hash: 3ac8bad9f0f6d5831fdc0f02b3ff2ddf

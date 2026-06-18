@@ -21,7 +21,7 @@ class TestOrganizations:
     @parametrize
     def test_method_list_guardrail_violations(self, client: DevinPlatform) -> None:
         organization = client.beta1.enterprise.organizations.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(PaginatedResponse, organization, path=["response"])
 
@@ -29,7 +29,7 @@ class TestOrganizations:
     @parametrize
     def test_method_list_guardrail_violations_with_all_params(self, client: DevinPlatform) -> None:
         organization = client.beta1.enterprise.organizations.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
             after="after",
             first=1,
             guardrail_id="guardrail_id",
@@ -44,7 +44,7 @@ class TestOrganizations:
     @parametrize
     def test_raw_response_list_guardrail_violations(self, client: DevinPlatform) -> None:
         response = client.beta1.enterprise.organizations.with_raw_response.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -56,7 +56,7 @@ class TestOrganizations:
     @parametrize
     def test_streaming_response_list_guardrail_violations(self, client: DevinPlatform) -> None:
         with client.beta1.enterprise.organizations.with_streaming_response.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -84,7 +84,7 @@ class TestAsyncOrganizations:
     @parametrize
     async def test_method_list_guardrail_violations(self, async_client: AsyncDevinPlatform) -> None:
         organization = await async_client.beta1.enterprise.organizations.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
         assert_matches_type(PaginatedResponse, organization, path=["response"])
 
@@ -92,7 +92,7 @@ class TestAsyncOrganizations:
     @parametrize
     async def test_method_list_guardrail_violations_with_all_params(self, async_client: AsyncDevinPlatform) -> None:
         organization = await async_client.beta1.enterprise.organizations.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
             after="after",
             first=1,
             guardrail_id="guardrail_id",
@@ -107,7 +107,7 @@ class TestAsyncOrganizations:
     @parametrize
     async def test_raw_response_list_guardrail_violations(self, async_client: AsyncDevinPlatform) -> None:
         response = await async_client.beta1.enterprise.organizations.with_raw_response.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
         )
 
         assert response.is_closed is True
@@ -119,7 +119,7 @@ class TestAsyncOrganizations:
     @parametrize
     async def test_streaming_response_list_guardrail_violations(self, async_client: AsyncDevinPlatform) -> None:
         async with async_client.beta1.enterprise.organizations.with_streaming_response.list_guardrail_violations(
-            org_id="org-abc123def456",
+            org_id="org_id",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

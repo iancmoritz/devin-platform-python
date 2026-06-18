@@ -69,7 +69,7 @@ class SessionsResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#accessing-raw-response-data-eg-headers
         """
         return SessionsResourceWithRawResponse(self)
 
@@ -78,7 +78,7 @@ class SessionsResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#with_streaming_response
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#with_streaming_response
         """
         return SessionsResourceWithStreamingResponse(self)
 
@@ -124,15 +124,35 @@ class SessionsResource(SyncAPIResource):
         self,
         *,
         after: Optional[str] | Omit = omit,
+        category: Optional[
+            Literal[
+                "bug_fixing",
+                "ci_cd_and_devops",
+                "code_quality_and_security",
+                "code_review_and_analysis",
+                "data_and_automation",
+                "documentation_and_content",
+                "feature_development",
+                "migrations_and_upgrades",
+                "other",
+                "refactoring_and_optimization",
+                "research_and_exploration",
+                "unit_test_generation",
+            ]
+        ]
+        | Omit = omit,
         created_after: Optional[int] | Omit = omit,
         created_before: Optional[int] | Omit = omit,
         first: int | Omit = omit,
+        include_deleted_orgs: bool | Omit = omit,
+        is_archived: Optional[bool] | Omit = omit,
         org_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         origins: Optional[
-            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "scheduled", "cli", "other"]]
+            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "automation", "cli", "desktop", "other"]]
         ]
         | Omit = omit,
         playbook_id: Optional[str] | Omit = omit,
+        repo_names: Optional[SequenceNotStr[str]] | Omit = omit,
         schedule_id: Optional[str] | Omit = omit,
         service_user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         session_ids: Optional[SequenceNotStr[str]] | Omit = omit,
@@ -151,6 +171,8 @@ class SessionsResource(SyncAPIResource):
         List all sessions across the enterprise.
 
         Args:
+          repo_names: Filter by repository names (e.g., 'owner/repo')
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -169,12 +191,16 @@ class SessionsResource(SyncAPIResource):
                 query=maybe_transform(
                     {
                         "after": after,
+                        "category": category,
                         "created_after": created_after,
                         "created_before": created_before,
                         "first": first,
+                        "include_deleted_orgs": include_deleted_orgs,
+                        "is_archived": is_archived,
                         "org_ids": org_ids,
                         "origins": origins,
                         "playbook_id": playbook_id,
+                        "repo_names": repo_names,
                         "schedule_id": schedule_id,
                         "service_user_ids": service_user_ids,
                         "session_ids": session_ids,
@@ -249,7 +275,7 @@ class AsyncSessionsResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#accessing-raw-response-data-eg-headers
         """
         return AsyncSessionsResourceWithRawResponse(self)
 
@@ -258,7 +284,7 @@ class AsyncSessionsResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#with_streaming_response
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#with_streaming_response
         """
         return AsyncSessionsResourceWithStreamingResponse(self)
 
@@ -304,15 +330,35 @@ class AsyncSessionsResource(AsyncAPIResource):
         self,
         *,
         after: Optional[str] | Omit = omit,
+        category: Optional[
+            Literal[
+                "bug_fixing",
+                "ci_cd_and_devops",
+                "code_quality_and_security",
+                "code_review_and_analysis",
+                "data_and_automation",
+                "documentation_and_content",
+                "feature_development",
+                "migrations_and_upgrades",
+                "other",
+                "refactoring_and_optimization",
+                "research_and_exploration",
+                "unit_test_generation",
+            ]
+        ]
+        | Omit = omit,
         created_after: Optional[int] | Omit = omit,
         created_before: Optional[int] | Omit = omit,
         first: int | Omit = omit,
+        include_deleted_orgs: bool | Omit = omit,
+        is_archived: Optional[bool] | Omit = omit,
         org_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         origins: Optional[
-            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "scheduled", "cli", "other"]]
+            List[Literal["webapp", "slack", "teams", "api", "linear", "jira", "automation", "cli", "desktop", "other"]]
         ]
         | Omit = omit,
         playbook_id: Optional[str] | Omit = omit,
+        repo_names: Optional[SequenceNotStr[str]] | Omit = omit,
         schedule_id: Optional[str] | Omit = omit,
         service_user_ids: Optional[SequenceNotStr[str]] | Omit = omit,
         session_ids: Optional[SequenceNotStr[str]] | Omit = omit,
@@ -331,6 +377,8 @@ class AsyncSessionsResource(AsyncAPIResource):
         List all sessions across the enterprise.
 
         Args:
+          repo_names: Filter by repository names (e.g., 'owner/repo')
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -349,12 +397,16 @@ class AsyncSessionsResource(AsyncAPIResource):
                 query=await async_maybe_transform(
                     {
                         "after": after,
+                        "category": category,
                         "created_after": created_after,
                         "created_before": created_before,
                         "first": first,
+                        "include_deleted_orgs": include_deleted_orgs,
+                        "is_archived": is_archived,
                         "org_ids": org_ids,
                         "origins": origins,
                         "playbook_id": playbook_id,
+                        "repo_names": repo_names,
                         "schedule_id": schedule_id,
                         "service_user_ids": service_user_ids,
                         "session_ids": session_ids,

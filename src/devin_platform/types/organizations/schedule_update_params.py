@@ -15,7 +15,7 @@ __all__ = ["ScheduleUpdateParams"]
 class ScheduleUpdateParams(TypedDict, total=False):
     org_id: Required[str]
 
-    agent: Optional[Literal["devin", "data_analyst", "advanced"]]
+    agent: Optional[Literal["devin", "data_analyst"]]
 
     bypass_approval: Optional[bool]
 

@@ -50,7 +50,7 @@ class MetricsResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#accessing-raw-response-data-eg-headers
         """
         return MetricsResourceWithRawResponse(self)
 
@@ -59,7 +59,7 @@ class MetricsResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#with_streaming_response
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#with_streaming_response
         """
         return MetricsResourceWithStreamingResponse(self)
 
@@ -524,7 +524,7 @@ class AsyncMetricsResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#accessing-raw-response-data-eg-headers
         """
         return AsyncMetricsResourceWithRawResponse(self)
 
@@ -533,7 +533,7 @@ class AsyncMetricsResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/devin-platform-python#with_streaming_response
+        For more information, see https://www.github.com/iancmoritz/devin-platform-python#with_streaming_response
         """
         return AsyncMetricsResourceWithStreamingResponse(self)
 
